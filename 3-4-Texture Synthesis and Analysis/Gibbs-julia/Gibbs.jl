@@ -21,7 +21,7 @@ function gibbs!(L::Vector, F::Matrix, Model::Function, β::Vector, α=0)
         for l ∈ L
             ΣV₂ = 0
             for i′ ∈ N
-                if i′ != i    # exclude o o
+                if i′ != i    # exclude o o, so N => Nᵢ
                     ΣV₂ += Model(i, i′, l, F[i′], β)
                 end
             end
