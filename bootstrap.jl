@@ -7,3 +7,6 @@ include(joinpath(dir, "2-Mathematical MRF Models", "MLL.jl"))
 
 # 3-4-Texture Synthesis and Analysis
 include(joinpath(dir, "3-4-Texture Synthesis and Analysis", "Gibbs-julia", "Gibbs.jl"))
+include(joinpath(dir, "3-4-Texture Synthesis and Analysis", "Metropolis-julia", "Metropolis.jl"))
+
+println("Loaded successfully.")

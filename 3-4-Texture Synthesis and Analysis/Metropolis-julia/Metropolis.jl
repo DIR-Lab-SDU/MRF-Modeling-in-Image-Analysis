@@ -29,13 +29,13 @@ function metropolis!(L::Vector, F::Matrix, Model::Function, β::Vector, α=0)
         end
         # U(fᵢ) = V₁(fᵢ) + Σ V₂(fᵢ)
         #       =  αfᵢ   + Σ βᵢᵢ′fᵢfᵢ′
-        Uf = α*F[i] + ΣV₂′
+        Uf = α*F[i] + ΣV₂
         Uf′ = α*fᵢ + ΣV₂′
-        # P(fᵢ) = e^U(fᵢ) / Σᵢe^U(i)
+        # P(f) = e^-U(f) / Z
         # where P is the given Gibbs distribution
         #       U is energy function
-        Pf = e.^Uf / Σ(e.^Uf)
-        Pf′ = e.^Uf′ / Σ(e.^Uf′)
+        Pf = e.^-Uf   # / Z
+        Pf′ = e.^-Uf′ # / Z
         # calculate p
         p = min(1, Pf/Pf′)
         # (2.3) replace F by F′ with probability p;
