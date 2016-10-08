@@ -1,20 +1,21 @@
 ```julia
-# in playground.jl
+# in Jupyter
 using Images
 
 # label set L
-labels = [0, 1]
+labels = [0, 1, 2]
 
 # interaction parameters
 beta = [1, -1, -1, -1]
 
 # labeling F
-img = grayim(rand(100,100))
+labeling = rand(100,100)
+grayim(labeling)
 
-# MCMC
-for i = 1:10
-    gibbs!(labels, img.data, beta)
+# burn-in
+for i = 1:10                   
+    gibbs!(labels, labeling, MLL, beta)
+    IJulia.clear_output(true)
+    display(grayim(labeling/maximum(labeling)))
 end
-
-img
 ```

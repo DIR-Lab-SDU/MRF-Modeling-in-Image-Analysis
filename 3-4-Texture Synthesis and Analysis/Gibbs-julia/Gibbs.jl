@@ -5,6 +5,13 @@ using Distributions
 
 # Sampling Algorithm 2
 # Figure 3.8: Generating a texture using a Gibbs sampler.
+"""
+gibbs!(L, F, Model, β)
+* L : label set
+* F : labeling | configuration | image
+* Model : ising | autologic | MLL
+* β : interaction parameters
+"""
 function gibbs!(L::Vector, F::Matrix, Model::Function, β::Vector, α=0)
     # S = {(i,j) | 1 ≤ i,j ≤ n} correspond to the pixels of an n×n image in the 2D plane
     S = CartesianRange(size(F))

@@ -3,6 +3,13 @@
 
 # Sampling Algorithm 1
 # Figure 3.7: Generating a texture using a Metropolis sampler.
+"""
+metropolis!(L, F, Model, β)
+* L : label set
+* F : labeling | configuration | image
+* Model : ising | autologic | MLL
+* β : interaction parameters
+"""
 function metropolis!(L::Vector, F::Matrix, Model::Function, β::Vector, α=0)
     # S = {(i,j) | 1 ≤ i,j ≤ n} correspond to the pixels of an n×n image in the 2D plane
     S = CartesianRange(size(F))
